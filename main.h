@@ -1,30 +1,38 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef PRINT_H
+#define PRINT_H
 
+/* Std libraries */
 #include <stdarg.h>
-int _putchar(char c);
-int _printf(const char *format, ...);
-int print_char(va_list c);
-int print_string(va_list s);
-int print_int(va_list i);
-int print_dec(va_list d);
-int print_rev(va_list r);
-int print_bin(va_list b);
-int print_unsig(va_list u);
-int print_octal(va_list o);
-int print_x(va_list x);
-int print_X(va_list X);
-int print_rot13(va_list R);
-/**
- * struct code_format - Struct format
- *
- * @sc: The specifiers
- * @f: The function associated
- */
-typedef struct code_format
-{
-	char *sc;
-	int (*f)(va_list);
-} code_f;
+#include <stdlib.h>
+#include <unistd.h>
 
-#endif /* MAIN_H */
+/**
+ * struct converter - Takes members that point to specifiers
+ * and their functions.
+ * @spec: The function to the specifier
+ * @func_spec: The specifier function
+ */
+struct converter
+{
+    char *spec;
+    int (*func_spec)(va_list);
+};
+
+/**
+ * conver_t - Typedef for the converter struct
+ */
+typedef struct converter conver_t;
+
+/* Main functions */
+int _printf(const char *format, ...);
+int _putchar(char c);
+int parser(const char *format, va_list spec_list, conver_t fmt[]);
+
+/* Specifier functions */
+int print_char(va_list);
+int print_string(va_list);
+int print_percent(va_list);
+int print_integer(va_list);
+int print_number(va_list);
+
+#endif
