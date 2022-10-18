@@ -15,6 +15,10 @@ conver_t fmt[] = {
 {"d", print_integer},
 {"i", print_integer},
 {NULL, NULL}};
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 2bc7c51103bcff84da533d0e26f95ba3497a368f
 int count;
 va_list spec_list;
 va_start(spec_list, format);
