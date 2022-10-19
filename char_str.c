@@ -7,11 +7,11 @@
  */
 int print_char(va_list spec_list)
 {
-    char c;
+	char c;
 
-    c = (va_arg(spec_list, int));
-    _putchar(c);
-    return (1);
+	c = (va_arg(spec_list, int));
+	_putchar(c);
+	return (1);
 }
 
 /**
@@ -21,16 +21,16 @@ int print_char(va_list spec_list)
  */
 int print_string(va_list spec_list)
 {
-    int i;
-    char *str;
+	int i;
+	char *str;
 
-    str = (va_arg(spec_list, char *));
-    if (str == NULL)
-        str = "(null)";
-    for (i = 0; str[i] != '\0'; i++)
-        _putchar(str[i]);
+	str = (va_arg(spec_list, char*));
+	if (str == NULL)
+		str = "(null)";
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
 
-    return (i);
+	return (i);
 }
 
 /**
@@ -40,6 +40,6 @@ int print_string(va_list spec_list)
  */
 int print_percent(__attribute__((unused)) va_list spec_list)
 {
-    _putchar('%');
-    return (1);
+	_putchar('%');
+	return (1);
 }
